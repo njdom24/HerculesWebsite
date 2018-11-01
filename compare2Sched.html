@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+        <script src="Res\course.js"></script>
+        <script src="Res\scheduleChecker.js"></script>
+<title>Demo</title>
+<link rel="shortcut icon" type="image/x-icon" href="Res\favicon.ico" />
+
+</head>
+<body>
+    <!--<input type='file' accept='.ics' onchange='openFile(event)'><br>-->
+    <input type='file' accept='.ics' onchange="openFile(event, 1)"><br>
+    <input type='file' accept='.ics' onchange="openFile(event, 2)"><br>
+    
+    <button onclick = "compFile()">Calculate</button>
+    <p id = "heck"></p>
+    <p>Please input your credit card number: </p>
+    <input type='text'>
+    <video autoplay muted loop id="myVideo">
+        <source src="Res\videoplayback.mp4" type="video/mp4">
+      </video>
+</body>
+
+
+    
+</html>
