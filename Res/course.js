@@ -23,14 +23,14 @@ function Course(c, d, h, m, eH, eM, p, l)
         if(thisMonth < thatMonth)
             return true;
         else
-            if(thisDay < thatDay)
-                return true;
-        else
-            if(thisDay == thatDay)
-                if(thisTime < thatTime)
+            if(thisMonth == thatMonth)// && thisDay < thatDay)
+            {
+                if(thisDay < thatDay)
                     return true;
                 else
-                    return false;
+                    if(thisDay == thatDay && thisTime < thatTime)
+                        return true;
+            }
         return false;
     }
     /*

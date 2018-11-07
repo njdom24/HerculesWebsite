@@ -1,0 +1,46 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+table{
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    background-image: linear-gradient(to left, #ff5e62 0%, #ff9966 51%, #ff5e62 80%);
+    
+}
+table, th, td {
+    
+    border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
+    border-image-slice: 1;
+    border-width: 2px;
+}
+
+td{
+    border: 1px solid black;
+}
+.course, #headers{
+    background-color: rosybrown;
+    background-image: linear-gradient(to left, #ff9966 0%, #ff5e62 51%);
+    color: ghostwhite;
+    font-weight: 700;
+    text-align: center;
+    border: 0px;
+}
+.even{
+    background-color: white;
+    border: 0px;
+}
+.odd{
+    background-color: #f7f7f7;
+    border: 0px;
+}
+
+.evenTime{
+    background-color: blue;
+}
+
+.oddTime{
+    background-image: 0;
+    background-color: green;
+}
