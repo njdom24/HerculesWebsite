@@ -3,9 +3,7 @@
 	<head>
     	<title>CS 146 Final Project</title>
     	<link rel="stylesheet" href="style.css">
-        <script src="https://javascript.js" async></script>
-        <script src="Res\course.js"></script>
-        <script src="Res\scheduleChecker.js"></script>
+    	<script src="https://javascript.js" async></script>
 	</head>
 	<body>
         <header>
@@ -34,12 +32,17 @@
         </header>
     	<div class="content">
     		<h3>Compare your schedule with a friend (or enemy) to see what classes (if any) that you have together.</h3>
-    <!---Schedule comparer from JS here --->
-            Good luck with all the classes you have together. If it's one of Herc's classes, know that he is always watching, ready to give a short quiz at any moment, and is always watching.<br>
-            <input type='file' accept='.ics' onchange="openFile(event, 1)"><br>
-            <input type='file' accept='.ics' onchange="openFile(event, 2)"><br>
-    
-            <button onclick = "compFile()">Calculate</button>
-            <p id = "heck"></p>
-    		<br><img class= "BeAfraid" src="BeAfraid.jpg">
+            <!---Schedule comparer from JS here --->
+    		Good luck with all the classes you have together. If it's one of Herc's classes, know that he is always watching, ready to give a short quiz at any moment, so BE VERY AFRAID.
+    		<br>
+            <img class= "BeAfraid" src="BeAfraid.jpg"> 
+            <br>
+            <table class="center">
+                <tr>
+                    <td class="buttoncomparer"><button >Schedule 1</button> </td>
+                    <td class="buttoncomparer"><button >Schedule 2</button></td>
+                </tr>
+            </table>
+            
+            
         </div>

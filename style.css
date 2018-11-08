@@ -37,18 +37,21 @@ h1{
 	border-collapse: collapse;
 
 }
-thead{
+table.movie thead{
 	font-size: 30px;
 }
 table.movie td{
 	width: 42%;
 	padding: 5px; 
 }
-table.movie tr.info td,th{
+.movie{
+	border-style:solid;
+}
+table.movie tr td, table.movie tr th{
 	border-style: solid;
 }
-.title{
-	border-style:none;
+.centercell{
+	border-style: solid;
 }
 .red{
 	background-color: #FF0000;
@@ -98,6 +101,7 @@ ul.a{
 	  the right of the text. It also needs to look appealing and big enough
 	  where the users can read it.*/
 	  float: right;
+	  position
 	  bottom:10%;
 	  right:10%;
 }
@@ -110,6 +114,9 @@ a:visited {
 li>a:visited{
 	color:white;
 }
+li>a{
+	color:white;
+}
 
 .navClass > ul {
 	background-color: grey;
@@ -120,7 +127,7 @@ li>a:visited{
 .navClass > ul > li {
 	list-style-type: none;
 	display: inline-block;
-	padding: 10px 100px;
+	padding: 1% 2%;
 	position: relative;
 }
 
@@ -181,7 +188,6 @@ ul.sub_menu li:hover{
 }
 
 .list_form{
-	
 	font-size: 100%;
 }
 
@@ -208,3 +214,84 @@ li{
 	margin-right: 2%;
 }
 
+.hercsched{
+	border-collapse: collapse;
+}
+
+.hercsched td, .hercsched th{
+	border-style: solid;
+	border: 1px solid black;
+	padding:0px;
+	margin: 0px;
+	width:17%;
+}
+
+.event{
+	border:1px solid red;
+}
+
+#listbox{
+    color: black;
+    background-color: lightgreen;
+    border-radius: 2px
+}
+
+#listbox2{
+    color: black;
+    background-color: cyan;
+    border-radius: 2px
+}
+
+#listbox3{
+    color: black;
+    background-color: lightpink;
+    border-radius: 2px
+}
+
+#listbox4{
+    color: black;
+    background-color: yellow;
+    border-radius: 2px
+}
+
+#listbox5{
+    color: black;
+    background-color: orange;
+    border-radius: 2px
+}
+
+.tablehead{
+    background-color: rgb(145, 176, 233)
+}
+
+.rowtype1{
+    background-color: rgb(255, 255, 255)
+}
+
+.rowtype2{
+    background-color: rgb(225, 245, 252);
+}
+
+.herctable{
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.herctable td{
+	width: 18%;
+}
+ .herctable th{
+ 	width: 10%;
+ }
+ .buttoncompare{
+ 	margin-right: 40%;
+ 	margin-left: 40%;
+ }
+ .center{
+ 	margin-right: 40%;
+ 	margin-left: 40%;
+ }
+
+.blue{
+	background-color: blue;
+}
