@@ -60,8 +60,24 @@ compareSched = function()
                 arrCommon.push(arr1[i]);
 
     arrCommon.sort(compare);//orders shared classes by date and time
+    toTable(arrCommon, false);   
+}
+combineSched = function()
+{
+    document.getElementById("heck").innerHTML = "";
+    arrCommon = [];
+    console.clear();
+    let arr = [];
+    let arr1 = fileToArray(file1);//holds Courses from file1
+    let arr2 = fileToArray(file2);
 
-    toTable(arrCommon);   
+    for(let i = 0; i < arr1.length; i++)
+        arrCommon.push(arr1[i]);
+    for(let i = 0; i < arr2.length; i++)
+        arrCommon.push(arr2[i]);
+
+    arrCommon.sort(compare);//orders shared classes by date and time
+    toTable(arrCommon, true);   
 }
 var fileToArray = function(f)
 {
@@ -132,16 +148,13 @@ var fileToArray = function(f)
             arr[arr.length-1].course = f[f.length-5].substring(f[f.length-5].indexOf(":")+1)
     return arr;
 }
-var makeCommonTable = function(a, b)
-{
-
-}
 var compFile = function()
 {
     if(!(file1.length == 0 || file2.length == 0))
     {
         //test();
         compareSched();
+        //combineSched();
     }
 };
 
@@ -163,13 +176,15 @@ var toDaysArray = function(a)
     return days;
 }
 
-var toTable = function(a)//Takes a 2D array with each nested array containing ordered classes for a specific day
+var toTable = function(a, isConsec)//Takes a 2D array with each nested array containing ordered classes for a specific day
 {
     let ceaseRows = [0,0,0,0,0];//determines the amount of rows to skip drawing blanks for per column
     let days = toDaysArray(a);
 
     console.log("DAVEDAYS");
     console.log(days);
+    if(isConsec)
+        combineConsec(days);
     console.log(days);
     var htmlString = "<table><tr id = \"headers\"><th>Time</th><th>Monday</th> <th>Tuesday</th><th>Wednesday</th><th>Thursday</th> <th>Friday</th></tr>";
 
@@ -223,14 +238,14 @@ var toTable = function(a)//Takes a 2D array with each nested array containing or
                     if(days[i][j].date != "2")
                         if(parseInt(days[i][j].startHour) == hour + ceaseRows[i]/4 && parseInt(closestQuarter(parseInt(days[i][j].startMins))) == mins + skipMins)
                         {
-                        let addRows = Math.round((parseInt(days[i][j].endHour)*60 + parseInt(days[i][j].endMins) - parseInt(days[i][j].startHour)*60 - parseInt(days[i][j].startMins))/15) + 1;
-                        ceaseRows[i] += addRows;
-                        //console.log(days[i][j].course + ", " + i + ", CEASEROWS: " + ceaseRows[i] + ", ADDROWS: " + addRows);
-                        htmlString += "<td class = \"course\" rowspan = \"" + addRows + "\">" + days[i][j].course + "</td>";
-                        //htmlString += "<td>" + days[i][j].course + "</td>";
-                        days[i][j].date = "2";//prevents reuse
-                        found = true;
-                        break;
+                            let addRows = Math.round((parseInt(days[i][j].endHour)*60 + parseInt(closestQuarter(parseInt(days[i][j].endMins))) - parseInt(days[i][j].startHour)*60 - parseInt(closestQuarter(parseInt(days[i][j].startMins))))/15) + 1;
+                            ceaseRows[i] += addRows;
+                            //console.log(days[i][j].course + ", " + i + ", CEASEROWS: " + ceaseRows[i] + ", ADDROWS: " + addRows);
+                            htmlString += "<td class = \"course\" rowspan = \"" + addRows + "\">" + days[i][j].course + "</td>";
+                            //htmlString += "<td>" + days[i][j].course + "</td>";
+                            days[i][j].date = "2";//prevents reuse
+                            found = true;
+                            break;
                         }
             }
             if(!found && ceaseRows[i] == 0)
@@ -254,12 +269,13 @@ var toTable = function(a)//Takes a 2D array with each nested array containing or
 
 var closestQuarter = function(a)
 {
+
     let num = 0;
 
     for(let i = 0; i < 4; i++)// 00, 15, 30, 45
     {
         if(a == num)
-            return num;
+            return "" + num;
         if(a-5 == num || a+5 == num)
         {
             if(num == 0)
@@ -269,7 +285,7 @@ var closestQuarter = function(a)
         }
         num += 15;
     }
-    return "30";
+    return "60";
 }
 
 var compare = function(a,b)
@@ -279,13 +295,56 @@ var compare = function(a,b)
     return 1;
 }
 
-var combineConsec = function(arr)//only works for consecutive, need to nest another loop
+var combineConsec = function(arr)//only works for consecutive. Takes days[][] as input
 {
     for(let n = 0; n < arr.length; n++)
     {
         for(let p = 0; p < arr[n].length-1; p++)
         {
+            let startTime1 = parseInt(closestQuarter(parseInt(arr[n][p].startMins))) + parseInt((arr[n][p].startHour)*60);
+            let endTime1 = parseInt(closestQuarter(parseInt(arr[n][p].endMins))) + parseInt((arr[n][p].endHour)*60);
+            let startTime2 = parseInt(closestQuarter(parseInt(arr[n][p+1].startMins))) + parseInt((arr[n][p+1].startHour)*60);
+            let endTime2 = parseInt(closestQuarter(parseInt(arr[n][p+1].endMins))) + parseInt((arr[n][p+1].endHour)*60);
+
+            if(arr[n][p].course.includes("Series") && arr[n][p+1].course.includes("Intro")){
+            console.log(arr[n][p].course + "\n" + arr[n][p+1].course);
+            
+            console.log(startTime1);
+            console.log("End mins: " + parseInt(closestQuarter(arr[n][p].endMins)));
+            console.log("End hour: " + parseInt((arr[n][p].endHour)));
+
+            console.log("Start mins: " + parseInt(closestQuarter(arr[n][p+1].startMins)));
+            console.log("Start hour: " + parseInt((arr[n][p+1].startHour)));
+            
+            console.log(endTime1);
+            console.log(startTime2);
+            console.log(endTime2);}
+
+            
+            if(startTime1 == startTime2 && endTime1 == endTime2 && startTime2)
+            {
+                arr[n][p+1].startMins = arr[n][p].startMins;
+                arr[n][p+1].startHour = arr[n][p].startHour;
+                arr[n][p].startHour = "99";
+            }
+            else
+                if(startTime2 > startTime1 && (startTime2 < endTime1 || startTime2 == endTime1 + 15))// || startTime2 == endTime1 + 15))// || startTime2 == endTime1+15) )//if one class starts in the middle of or at the end of another
+                {
+                    
+                    console.log("leedle lee");
+                    if(endTime2 >= endTime1)//if class 2 ends after class 1
+                    {
+                        arr[n][p+1].startMins = arr[n][p].startMins;
+                        arr[n][p+1].startHour = arr[n][p].startHour;
+                        arr[n][p].startHour = "99";
+                    }
+                    else
+                        arr[n][p+1].startHour = "99";
+                        
+                }
+            /*
             if(parseInt(closestQuarter(arr[n][p].endMins) + 15) == (parseInt(closestQuarter(arr[n][p+1].startMins))))//if the end of one class leads into the beginning of another
+            //if(parseInt(closestQuarter(arr[n][p].endMins)) < parseInt(closestQuarter(arr[n][p+1].startMins)))//if one class starts in the middle of another and ends after
             {
                 arr[n][p+1].startMins = arr[n][p].startMins;
                 arr[n][p+1].startHour = arr[n][p].startHour;
@@ -298,13 +357,7 @@ var combineConsec = function(arr)//only works for consecutive, need to nest anot
                     arr[n][p+1].startHour = arr[n][p].startHour;
                     arr[n][p].startHour = "99";
                 }
+            */
         }
     }
-}
-
-//make days array of everything
-//if course starts during another course and ends after, combine
-var combineScheds = function(a, b)
-{
-    
 }

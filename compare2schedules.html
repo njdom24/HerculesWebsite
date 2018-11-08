@@ -2,15 +2,16 @@
 <html lang='en'>
 	<head>
     	<title>CS 146 Final Project</title>
-    	<link rel="stylesheet" href="style.css">
-    	<script src="https://javascript.js" async></script>
+        <link rel="stylesheet" href="style.css">
+        <script src="Res\course.js"></script>
+    	<script src="Res\scheduleChecker.js"></script>
 	</head>
 	<body>
         <header>
     	   <h1>Schedule Comparer</h1>
             <nav class="navClass">
             <ul>
-            <li><a href="homePage.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li>Time Management
                 <ul class = "sub_menu">
                     <li><a href="TimeManImp.html">Importance</a></li>
@@ -39,8 +40,12 @@
             <br>
             <table class="center">
                 <tr>
-                    <td class="buttoncomparer"><button >Schedule 1</button> </td>
-                    <td class="buttoncomparer"><button >Schedule 2</button></td>
+                    <input type='file' accept='.ics' onchange="openFile(event, 1)"><br>
+                    <input type='file' accept='.ics' onchange="openFile(event, 2)"><br>
+                    <br>
+                    <button onclick = "compFile()">Calculate</button>
+
+                    <p id = "heck"></p>
                 </tr>
             </table>
             

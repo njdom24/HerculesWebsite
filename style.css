@@ -1,4 +1,5 @@
 body{
+	font-family: "Roboto";
 	background-color: rgb(211,211,211);
 }
 header{
@@ -7,7 +8,6 @@ header{
 	align-items: center;
 	color: #FFFFFF;
 	font-family:"verdana";
-	width:100%;
 
 }
 h1{
