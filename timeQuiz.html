@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 	<title>Quiz!</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="Res\style.css">
+	<script src="Res\quizEval.js"></script>
 </head>
 <body>
 	<header>
@@ -34,36 +36,37 @@
 	<p></p>
 	<p><b>What is the first thing to do when trying to manage your time?</b></p>
 	<form>
-		<input type="radio" name="pick" value="Sleep">Sleep<br>
-		<input type="radio" name="pick" value="Watch TV">Watch TV<br>
-		<input type="radio" name="pick" value="Set a goal">Set a goal<br>
-		<input type="radio" name="pick" value="Play a board game">Play a board game
+		<input type="radio" name="pick" id="Sleep"><label for = "Sleep">Sleep</label><br>
+		<input type="radio" name="pick" id="Watch TV"><label for = "Watch TV">Watch TV</label><br>
+		<input type="radio" name="pick" id="Set a goal"><label for = "Set a goal">Set a goal</label><br>
+		<input type="radio" name="pick" id="Play a board game"><label for = "Play a board game">Play a board game</label><br>
 	</form>
 	<p><b>What are one of the 7 tips to manage your time?</b></p>
 	<form>
-		<input type="radio" name="pick" value="Don't Prioritize">Don't Prioritize<br>
-		<input type="radio" name="pick" value="Keep doing a task until you get it">Keep doing a task until you get it TV<br>
-		<input type="radio" name="pick" value="Don't take breaks">Don't take breaks<br>
-		<input type="radio" name="pick" value="Plan ahead!">Plan ahead!
+		<input type="radio" name="pick" id="Don't Prioritize"><label for = "Don't Prioritize">Don't prioritize</label><br>
+		<input type="radio" name="pick" id="Keep doing a task until you get it"><label for = "Keep doing a task until you get it">Keep doing a task until you get it</label><br>
+		<input type="radio" name="pick" id="Don't take breaks"><label for = "Don't take breaks">Don't take breaks</label><br>
+		<input type="radio" name="pick" id="Plan ahead!"><label for = "Plan ahead!">Plan ahead!</label><br>
 	</form>
 	<p><b>It is recommended that one should not take breaks in between a long work period.</b></p>
 	<form>
-		<input type="radio" name="pick" value="True">True<br>
-		<input type="radio" name="pick" value="False">False
+		<input type="radio" name="pick" id="True0"><label for = "True0">True</label><br>
+		<input type="radio" name="pick" id="False0"><label for = "False0">False</label>
 	</form>
 	<p><b>Set time limits on tasks, and if you cant complete the task in a period of time, skip it and come back to it.</b></p>
 	<form>
-		<input type="radio" name="pick" value="True">True<br>
-		<input type="radio" name="pick" value="False">False
+		<input type="radio" name="pick" id="True1"><label for = "True1">True</label><br>
+		<input type="radio" name="pick" id="False1"><label for = "False1">False</label>
 	</form>
 	<p><b>Time management is important.</b></p>
 	<form>
-		<input type="radio" name="pick" value="True">True<br>
-		<input type="radio" name="pick" value="False">False
+		<input type="radio" name="pick" id="True2"><label for = "True2">True</label><br>
+		<input type="radio" name="pick" id="False2"><label for = "False2">False</label>
 	</form>
 	<br>
-	<button>Submit</button>
-	<button><a href="timeQuiz.html">Reset</a></button>
+	<button onclick = "evaluateQuiz()">Submit</button>
+	<button onclick = "resetQuiz()">Reset</a></button>
+	<p id = "corrects"></p>
 	</div>
 </body>
 </html>
