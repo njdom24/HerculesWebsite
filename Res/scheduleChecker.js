@@ -263,6 +263,7 @@ var toTable = function(a, isConsec)//Takes a 2D array with each nested array con
 
 
     htmlString += "</table>";
+    document.getElementById("schedule").className = "content";
     document.getElementById("heck").innerHTML = htmlString;
 
 }

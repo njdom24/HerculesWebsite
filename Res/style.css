@@ -59,10 +59,10 @@ table.movie tr td, table.movie tr th{
 	border-style: solid;
 }
 .red{
-	background-color: #FF0000;
+	background-color: rgb(255, 109, 109);
 }
 .green{
-	background-color: #00FF00;
+	background-color: rgb(110, 255, 110);
 }
 .poster{
 	width: 100%;
@@ -135,7 +135,7 @@ li>a{
 
 .navClass > ul > li {
 	flex-grow: 1;
-	
+	z-index: 10;
 	list-style-type: none;
 	display: inline-block;
 	padding: 1% 2%;
@@ -319,6 +319,10 @@ li{
 	padding-top: 10px;
 }
 
+#herc{
+	height: 64px;
+}
+
 @media screen and (max-width: 800px){
 	body{
 		font-size: 30px;
@@ -364,6 +368,9 @@ li{
 }
 
 @media screen and (max-width: 600px){
+	.navClass{
+		font-size: 15px;
+	}
 	ul.sub_menu{
 		padding-left: 0px;
 		padding-right: 0px;
@@ -373,9 +380,18 @@ li{
 	}
 	.herctable{
 		align-self: center;
-		font-size: 10px;
+		font-size: 60%;
 	}
 	button, input[type=file]{
 		font-size: 20px;
+	}
+	.movie .info{
+		font-size: 15px;
+	}
+	.movie .title{
+		font-size: 20px;
+	}
+	.movie .info .centercell{
+		font-size: 12px;
 	}
 }
