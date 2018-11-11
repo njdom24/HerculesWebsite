@@ -1,4 +1,22 @@
 var audio;
+function startQuiz()
+{
+    audio = new Audio('Res/Hercules.m4a');
+    audio.play();
+    let nodes = document.getElementsByClassName("content")[0].children;
+    for(let i = 0; i < nodes.length; i++)
+    {
+        nodes[i].style.display = "inline";
+        for(let j = 0; j < nodes[i].length; j++)
+        {
+            nodes[i][j].style.display = "inline";
+            for(let k = 0; k < nodes[i][j].labels.length; k++)
+            {
+                nodes[i][j].labels[k].style.display = "inline";
+            }
+        }
+    }
+}
 function evaluateQuiz()
 {
     let nodes = document.querySelectorAll("form");

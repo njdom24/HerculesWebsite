@@ -82,7 +82,12 @@ ul.a{
 .button{
 	width: 40%;
 	margin-left: 30%;
-	margin-right: 30%
+	margin-right: 30%;
+	font-family: "Roboto";
+	font-weight: 500;
+	background: #a32638;
+	color: white;
+	border: 0;
 }
 
 .BeAfraid{
@@ -323,6 +328,25 @@ li{
 	height: 64px;
 }
 
+#quizButton{
+	transition-duration: 0.4s;
+	border-radius: 4px;
+	height: 60%;
+	font-size: 30px;
+	font-weight: 700;
+	font-family: "Roboto";
+	background: #a32638;
+	color: white;
+}
+#quizButton:hover{
+	background: darkred;
+}
+
+input[type=radio], label, .question
+{
+	display: none;
+}
+
 @media screen and (max-width: 800px){
 	body{
 		font-size: 30px;
@@ -344,9 +368,6 @@ li{
 		width: 100%;
 		height: 50px;
 		align-self: center;
-	}
-	.button{
-		
 	}
 	.buttoncompare{
 		margin-left: 0;

@@ -16,5 +16,4 @@ function NewMovie()
         else
             document.getElementById("MovieResult").innerHTML = "The Emoji Movie!<br><br>";
     }
-    
 }
